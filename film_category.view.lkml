@@ -3,17 +3,19 @@ view: film_category {
 
   dimension: category_id {
     type: yesno
-    # hidden: yes
+    hidden: yes
     sql: ${TABLE}.category_id ;;
   }
 
   dimension: film_id {
     type: number
+    hidden: yes
     # hidden: yes
     sql: ${TABLE}.film_id ;;
   }
 
   dimension_group: last_update {
+    hidden: yes
     type: time
     timeframes: [
       raw,

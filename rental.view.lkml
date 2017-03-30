@@ -80,7 +80,7 @@ view: rental {
     sql: datediff(${return_date}, ${rental_date}) ;;
   }
 
-  dimension: not_returned {
+  dimension: out_for_rent {
     type: yesno
     sql: isnull(${return_date}) ;;
   }
@@ -96,10 +96,12 @@ view: rental {
     sql: ${TABLE}.staff_id ;;
   }
 
+
   measure: count {
     type: count
     drill_fields: [detail*]
   }
+
 
   # ----- Sets of fields for drilling ------
   set: detail {

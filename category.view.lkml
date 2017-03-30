@@ -3,11 +3,13 @@ view: category {
 
   dimension: category_id {
     primary_key: yes
+    hidden: yes
     type: yesno
     sql: ${TABLE}.category_id ;;
   }
 
   dimension_group: last_update {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -22,13 +24,14 @@ view: category {
   }
 
   dimension: name {
-    view_label: "Genre"
+    view_label: "Film"
     label: "Genre"
     type: string
     sql: ${TABLE}.name ;;
   }
 
-  measure: count {
+  measure: genre_count {
+    view_label: "Film"
     type: count
     drill_fields: [category_id, name, film_category.count]
   }

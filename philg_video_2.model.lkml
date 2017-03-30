@@ -68,8 +68,15 @@ explore: rental {
   }
 
   join: category {
-    type: left_outer
+    type: inner
     sql_on: ${film_category.category_id}=${category.category_id} ;;
+    relationship: one_to_one
+  }
+
+  join: times_rented {
+    type: inner
+    sql_on: ${rental.inventory_id}=${times_rented.inventory_id} ;;
     relationship: many_to_one
   }
+
 }
